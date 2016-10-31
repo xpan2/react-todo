@@ -2,7 +2,7 @@ var React = require('react');
 var uuid = require('node-uuid');
 var moment = require('moment');
 
-var TodoList = require('TodoList');
+import TodoList from 'TodoList'
 var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
 var TodoAPI = require('TodoAPI');
@@ -40,7 +40,7 @@ var TodoApp = React.createClass({
   },
   render: function () {
     var {todos, showCompleted, searchText} = this.state;
-    var filterTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+    var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 
     return (
       <div>
@@ -53,7 +53,6 @@ var TodoApp = React.createClass({
               <TodoList/>
               <AddTodo onAddTodo={this.handleAddTodo}/>
             </div>
-
           </div>
         </div>
       </div>
