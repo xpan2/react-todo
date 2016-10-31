@@ -7,7 +7,7 @@ import AddTodo from 'AddTodo';
 var TodoSearch = require('TodoSearch');
 var TodoAPI = require('TodoAPI');
 
-var TodoApp = React.createClass({
+export var TodoApp = React.createClass({
   getInitialState: function () {
     return {
       showCompleted: false,
