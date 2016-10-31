@@ -10,7 +10,6 @@ export var searchTextReducer = (state = '', action) => {
   };
 };
 
-// showCompletedReducer, default false, TOGGLE_SHOW_COMPLETED
 export var showCompletedReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_SHOW_COMPLETED':
@@ -37,13 +36,16 @@ export var todosReducer = (state = [], action) => {
       return state.map((todo) => {
         if (todo.id === action.id) {
           var nextCompleted = !todo.completed;
+
           return {
             ...todo,
             completed: nextCompleted,
             completedAt: nextCompleted ? moment().unix() : undefined
-          }
+          };
+        } else {
+          return todo;
         }
-      })
+      });
     default:
       return state;
   }
